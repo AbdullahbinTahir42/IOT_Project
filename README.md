@@ -74,61 +74,84 @@ venv\Scripts\activate
 source venv/bin/activate
 uv add fastapi uvicorn supabase pydantic python-dotenv
 
-Create a .env file in the backend folder:
+Create a `.env` file in the backend folder:
 
 SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
 SUPABASE_KEY="YOUR_SUPABASE_SERVICE_ROLE_KEY"
+
+Install dependencies:
+
 pip install fastapi uvicorn supabase pydantic python-dotenv
 
 Navigate to the backend folder:
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-Run the server:
+
 cd smart_monitor_backend
+
+Run the server:
+
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
 
-3. Frontend Setup (React)
+## 2. Frontend Setup (React)
 
 Navigate to the frontend folder:
+
 cd smart_monitor_frontend
 
 Install dependencies:
+
 npm install
 
-Create a .env file in the frontend folder:
+Create a `.env` file in the frontend folder:
 
 VITE_SUPABASE_URL="YOUR_SUPABASE_PROJECT_URL"
 VITE_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
 
 Run the dashboard:
+
 npm run dev
 
-4. Firmware Setup (PlatformIO)
-Open the smart_monitor_Pio folder in VS Code (with PlatformIO extension installed).
 
-Update src/main.cpp with your Wi-Fi credentials:
+## 3. Firmware Setup (PlatformIO)
+
+Open the `smart_monitor_Pio` folder in VS Code  
+(Make sure the PlatformIO extension is installed).
+
+Update `src/main.cpp` with your Wi-Fi credentials:
 
 const char* ssid = "YOUR_HOTSPOT_NAME";
 const char* password = "YOUR_HOTSPOT_PASSWORD";
+
 // Use the IP of your laptop's Hotspot Adapter (e.g., 192.168.137.1)
-String serverName = "[http://192.168.137.1:8000/readings/](http://192.168.137.1:8000/readings/)";
-Connect ESP32 via USB.
+String serverName = "http://192.168.137.1:8000/readings/";
 
-Click Upload (Right arrow icon in bottom bar).
+Connect the ESP32 via USB.
 
-⚠️ Troubleshooting
+Click Upload (Right arrow icon in the bottom bar).
+
+
+## ⚠️ Troubleshooting
+
 1. Error -1 / Connection Refused
-Cause: The ESP32 cannot reach the laptop's backend server. This often happens on University/Enterprise Wi-Fi due to "Client Isolation".
 
-Fix: Use a Mobile Hotspot from your laptop or phone. Connect both the laptop and ESP32 to this hotspot. Ensure the IP address in main.cpp matches your laptop's Hotspot IP (check via ipconfig on Windows).
+Cause:
+The ESP32 cannot reach the laptop's backend server. This often happens on University/Enterprise Wi-Fi due to client isolation.
+
+Fix:
+Use a mobile hotspot from your laptop or phone.  
+Connect both the laptop and ESP32 to this hotspot.  
+Ensure the IP address in `main.cpp` matches your laptop’s hotspot IP (check using ipconfig on Windows).
 
 2. Dashboard Shows Old Data
-Cause: Backend sorting logic.
 
-Fix: Ensure the backend query sorts by id (descending) to fetch the newest rows first.
+Cause:
+Backend sorting logic.
+
+Fix:
+Ensure the backend query sorts by `id` in descending order to fetch the newest rows first.
 
 
-👤 Author
-Abdullah Tahir
+## 👤 Author
 
+Abdullah Tahir  
 LinkedIn: https://www.linkedin.com/in/abdullah-tahir-23ntucs1004/
