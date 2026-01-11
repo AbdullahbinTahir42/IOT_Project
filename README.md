@@ -66,12 +66,7 @@
 
 ### **2. Backend Setup (FastAPI)**
 
-Create a virtual environment and install dependencies:
-python -m venv venv
-# Windows:
-venv\Scripts\activate
-# Mac/Linux:
-source venv/bin/activate
+Install dependencies:
 uv add fastapi uvicorn supabase pydantic python-dotenv
 
 Create a `.env` file in the backend folder:
