@@ -87,7 +87,7 @@ Run the server:
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
 
-## 2. Frontend Setup (React)
+## 3. Frontend Setup (React)
 
 Navigate to the frontend folder:
 
@@ -107,7 +107,7 @@ Run the dashboard:
 npm run dev
 
 
-## 3. Firmware Setup (PlatformIO)
+## 4. Firmware Setup (PlatformIO)
 
 Open the `smart_monitor_Pio` folder in VS Code  
 (Make sure the PlatformIO extension is installed).
